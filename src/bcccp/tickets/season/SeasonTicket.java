@@ -1,5 +1,9 @@
 package bcccp.tickets.season;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -56,7 +60,21 @@ public class SeasonTicket implements ISeasonTicket {
 
 	@Override
 	public void recordUsage(IUsageRecord record) {
-		// TODO Auto-generated method stub
+		File writeUsageFile = new File("../Anonymous/UsageRecordData.txt");
+		if(writeUsageFile.exists()) {
+			try {
+				PrintWriter writeFile = new PrintWriter(writeUsageFile);
+				writeFile.print(record.getSeasonTicketId());
+				writeFile.print("\t");
+				writeFile.print(record.getStartTime());
+				writeFile.print("\t");
+				writeFile.print(record.getEndTime());
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 		
 	}
 
