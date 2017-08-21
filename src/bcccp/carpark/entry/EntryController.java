@@ -1,3 +1,12 @@
+//File : EntryController.java
+//Course Name : ITC 515 Professional Programming Principal
+//Assessment Item : Assignment 2
+//Instructor Name : Recep Ulusoy
+//Date : 21 August 2017
+//Due on : 25 August 2017
+//Student Id : 11619843
+//Student Name : Gulani Senthuran
+
 package bcccp.carpark.entry;
 
 import bcccp.carpark.Carpark;
