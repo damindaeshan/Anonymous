@@ -13,6 +13,10 @@ public class UsageRecord implements IUsageRecord {
 		this.startDateTime = startDateTime;
 	}
 
+	public UsageRecord() {
+		// TODO Auto-generated constructor stub
+	}
+
 	//
 	@Override
 	public void finalise(long endDateTime) {

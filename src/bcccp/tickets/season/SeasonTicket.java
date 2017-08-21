@@ -4,9 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.Writer;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class SeasonTicket implements ISeasonTicket {
 	
@@ -108,9 +110,34 @@ public class SeasonTicket implements ISeasonTicket {
 
 	@Override
 	public List<IUsageRecord> getUsageRecords() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		
+		
+		List<IUsageRecord> usageRecordList = new ArrayList<>();
+		
+		try {
+			
+			Scanner readUsageRecord = new Scanner(new File("../Anonymous/UsageRecordData.txt"));
+			
+			while(readUsageRecord.hasNext()){
+				String usageLine = readUsageRecord.nextLine();
+				if(usageLine.contains(ticketId)){
+					String[] usageRecArray = usageLine.split("\t");
+					UsageRecord usageRec = new UsageRecord();
+					usageRec.ticketId = usageRecArray[0];
+					usageRec.startDateTime = Date.parse(usageRecArray[1]);
+					usageRec.endDateTime =  Date.parse(usageRecArray[2]);
+					
+					usageRecordList.add(usageRec);
+				}
+			}
+				
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+			// TODO Auto-generated catch block
+			return usageRecordList;
+			
+		}
 
 
 }
