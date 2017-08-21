@@ -16,6 +16,14 @@ import bcccp.carpark.ICarpark;
 import bcccp.carpark.IGate;
 import bcccp.tickets.adhoc.IAdhocTicket;
 
+/**
+ * This file used to Exit the car from the car park. This file has setState method to set the state of the car park, 
+ * log method used to create the log file, ticketInserted method, ticketTaken method, carEventDetected used when the car exit,
+ * change the state accordingly.
+ * 
+ * @author 11619843
+ *
+ */
 public class ExitController 
 		implements ICarSensorResponder,
 		           IExitController {
