@@ -31,6 +31,10 @@ public class SeasonTicket implements ISeasonTicket {
 		this.endValidPeriod = endValidPeriod;
 	}
 	
+	public SeasonTicket() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void setTicketId(String ticketId) {
 		this.ticketId = ticketId;
 	}
