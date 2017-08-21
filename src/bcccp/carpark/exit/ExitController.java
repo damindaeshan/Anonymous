@@ -30,7 +30,9 @@ public class ExitController
 	private long exitTime;
 	private String seasonTicketId = null;
 	
-	
+	private enum STATE {IDLE, BLOCKED, EXITED, REJECTED}
+	private STATE state;
+	private STATE initState;
 
 	public ExitController(Carpark carpark, IGate exitGate, 
 			ICarSensor is,
@@ -41,7 +43,41 @@ public class ExitController
 		this.outsideSensor = os;
 		this.insideSensor = is;
 		this.ui = ui;
+
+		initState = STATE.IDLE;
+		setState(STATE.IDLE);
 		
+	}
+
+
+
+	/**
+	 * This method used to set the state
+	 * 
+	 * @param idle
+	 */
+	private void setState(STATE newState) {
+		switch (newState) {
+		case BLOCKED:
+			log("set State : BLOCKED");
+			state = STATE.BLOCKED;
+			ui.display("BLOCKED");
+			break;
+
+		default:
+			break;
+		}
+	}
+
+
+
+	/**
+	 * This method used to create the log file
+	 * 
+	 * @param message
+	 */
+	private void log(String message) {
+		System.out.println("Exit Controller : " + message);
 	}
 
 
