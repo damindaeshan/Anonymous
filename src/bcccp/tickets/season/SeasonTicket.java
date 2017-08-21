@@ -28,6 +28,22 @@ public class SeasonTicket implements ISeasonTicket {
 		this.startValidPeriod = startValidPeriod;
 		this.endValidPeriod = endValidPeriod;
 	}
+	
+	public void setTicketId(String ticketId) {
+		this.ticketId = ticketId;
+	}
+
+	public void setCarparkId(String carparkId) {
+		this.carparkId = carparkId;
+	}
+
+	public void setStartValidPeriod(long startValidPeriod) {
+		this.startValidPeriod = startValidPeriod;
+	}
+
+	public void setEndValidPeriod(long endValidPeriod) {
+		this.endValidPeriod = endValidPeriod;
+	}
 
 	@Override
 	public String getId() {	
