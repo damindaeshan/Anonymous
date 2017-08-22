@@ -6,11 +6,13 @@ public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 
 	private IAdhocTicketFactory factory;
 	private int currentTicketNo;
-
+	private List<IAdhocTicket> issued_Adhoc_Tickets;
 	
 	
 	public AdhocTicketDAO(IAdhocTicketFactory factory) {
-		//TODO Implement constructor
+		this.issued_Adhoc_Tickets = new ArrayList<IAdhocTicket>();
+		this.factory = factory;
+                this.currentTicketNo = 0;
 	}
 
 
