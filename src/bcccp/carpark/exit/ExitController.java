@@ -107,8 +107,14 @@ public class ExitController
 
 	@Override
 	public void ticketTaken() {
-		// TODO Auto-generated method stub
-		
+		if (state.equals(STATE.PROCESSED)) {
+			exitGate.raise();
+			setState(STATE.TAKEN);
+		} else if (state.equals(STATE.REJECTED)) {
+			setState(STATE.WAITING);
+		} else {
+			ui.beep();
+		}
 	}
 
 
