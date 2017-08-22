@@ -15,7 +15,8 @@ unique barcode.
 
 Assignment No. 2
 
-*/
+*/
+
 public class AdhocTicketFactory implements IAdhocTicketFactory {
 
 	//This is the overrided method of IadhocTicketFactory
