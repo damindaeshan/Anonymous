@@ -38,7 +38,7 @@ public class ExitController
 	private long exitTime;
 	private String seasonTicketId = null;
 	
-	private enum STATE {IDLE, BLOCKED, EXITED, REJECTED}
+	private enum STATE {IDLE, BLOCKED, EXITED, REJECTED, WAITING, EXITING, PROCESSED, TAKEN, ISSUED, VALIDATED, FULL }
 	private STATE state;
 	private STATE initState;
 
