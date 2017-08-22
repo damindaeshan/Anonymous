@@ -105,7 +105,10 @@ public class ExitController
 	}
 
 
-
+	/**
+	 * This method is override method and used to set the status of the car park
+	 * when ticket inserted.
+	 */
 	@Override
 	public void ticketInserted(String ticketStr) {
 		if (state.equals(STATE.WAITING)) {
