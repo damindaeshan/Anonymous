@@ -12,12 +12,14 @@ public class AdhocTicket implements IAdhocTicket {
 	private float charge;
 	private String barcode;
 
-	
+	private enum TICKET_STATE {Ticket_Issued, Car_Parked, Ticket_Paid, Car_Exited}
+    	private TICKET_STATE ticket_State;
 	
 	public AdhocTicket(String carparkId, int ticketNo, String barcode) {
 		this.carparkId = carparkId;
         	this.ticketNo = ticketNo;
         	this.barcode = barcode;
+		this.ticket_State = TICKET_STATE.Ticket_Issued;
 	}
 
 
