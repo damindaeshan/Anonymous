@@ -17,6 +17,15 @@ import bcccp.carpark.ICarparkObserver;
 import bcccp.carpark.IGate;
 import bcccp.tickets.adhoc.IAdhocTicket;
 
+/**
+ * This file used to Enter the car from the car park. This file has setState method to set the state of the car park, 
+ * log method used to create the log file, ticketInserted method, ticketTaken method, carEventDetected method, 
+ * buttonPushed method, notifyCarparkEvent method used when the car exit,
+ * change the state accordingly.
+ * 
+ * @author 11619843
+ *
+ */
 public class EntryController 
 		implements ICarSensorResponder,
 				   ICarparkObserver,
@@ -38,7 +47,7 @@ public class EntryController
 			ICarSensor os, 
 			ICarSensor is,
 			IEntryUI ui) {
-		this.carpark = this.carpark;
+		this.carpark = carpark;
 		this.entryGate = entryGate;
 		this.outsideSensor = os;
 		this.insideSensor = is;
