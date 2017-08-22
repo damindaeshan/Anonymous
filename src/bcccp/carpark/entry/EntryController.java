@@ -83,8 +83,14 @@ public class EntryController
 
 	@Override
 	public void ticketInserted(String barcode) {
-		// TODO Auto-generated method stub
-		
+		if (state.equals(STATE.WAITING)) {
+			if (carpark.isSeasonTicketValid(barcode) && !carpark.isSeasonTicketInUse(barcode)) {
+				this.seasonTicketId = barcode;
+				setState(STATE.VALIDATED);
+			}
+		} else {
+			ui.beep();
+		}
 	}
 
 
