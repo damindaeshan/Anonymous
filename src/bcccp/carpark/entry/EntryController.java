@@ -85,8 +85,11 @@ public class EntryController
 
 	@Override
 	public void notifyCarparkEvent() {
-		// TODO Auto-generated method stub
-		
+		if (state.equals(STATE.FULL)) {
+			if (!carpark.isFull()) {
+				setState(STATE.WAITING);
+			}
+		}
 	}
 
 	/**
