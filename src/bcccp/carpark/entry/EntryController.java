@@ -98,7 +98,31 @@ public class EntryController
 		System.out.println("Exit Controller : " + message);
 	}
 
+	/**
+	 * This method used to set the state
+	 * 
+	 * @param idle
+	 */
+	private void setState(STATE newState) {
+		switch (newState) {
+		case BLOCKED:
+			log("set State : BLOCKED");
+			state = STATE.BLOCKED;
+			ui.display("BLOCKED");
+			break;
 
+		case IDLE:
+			log("set State : IDLE");
+			state = STATE.IDLE;
+			ui.display("IDLE");
+			break;
+		default:
+			break;
+			// In-progress to do the other status
+			// Need to do EXITED, REJECTED, WAITING, EXITING, PROCESSED, TAKEN, ISSUED, VALIDATED, FULL
+			// status as like above
+		}
+	}
 
 	@Override
 	public void carEventDetected(String detectorId, boolean detected) {
