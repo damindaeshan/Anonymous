@@ -34,7 +34,8 @@ public class Carpark implements ICarpark {
 				PrintWriter writeFile = new PrintWriter(writeUsageFile);
 				writeFile.print(carparkId);
 				writeFile.print("\t");
-				writeFile.print(observer);				
+				writeFile.print(observer);	
+				writeFile.print("Registared");
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
