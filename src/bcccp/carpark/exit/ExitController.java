@@ -14,6 +14,7 @@ import bcccp.carpark.ICarSensor;
 import bcccp.carpark.ICarSensorResponder;
 import bcccp.carpark.ICarpark;
 import bcccp.carpark.IGate;
+import bcccp.carpark.entry.EntryController.STATE;
 import bcccp.tickets.adhoc.IAdhocTicket;
 
 /**
@@ -139,8 +140,23 @@ public class ExitController
 
 	@Override
 	public void carEventDetected(String detectorId, boolean detected) {
-		// TODO Auto-generated method stub
-		
+		log("Car Event Detected: " + detectorId + "Car Detected" + detected);
+		switch (state) {
+		case BLOCKED:
+			if (detectorId.equals(insideSensor.getId()) && !detected) {
+				setState(initState);
+			}
+			break;
+		case IDLE:
+			if (detectorId.equals(insideSensor.getId()) && detected) {
+				setState(STATE.WAITING);
+			} else if (detectorId.equals(outsideSensor.getId()) && detected) {
+				setState(STATE.BLOCKED);
+			}
+			// In-progress to do the further development
+		default:
+			break;
+		}
 	}
 
 	
