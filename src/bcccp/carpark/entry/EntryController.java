@@ -165,6 +165,12 @@ public class EntryController
 			} else if (detectorId.equals(outsideSensor.getId()) && detected) {
 				setState(STATE.BLOCKED);
 			}
+		case EXITED:
+			if (detectorId.equals(insideSensor.getId()) && detected) {
+				setState(STATE.EXITING);
+			} else if (detectorId.equals(outsideSensor.getId()) && detected) {
+				setState(STATE.IDLE);
+			}
 			// In-progress to do the further development
 		default:
 			break;
