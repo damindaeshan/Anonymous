@@ -149,7 +149,7 @@ public class EntryController
 			// status as like above
 		}
 	}
-
+	// This method used to do the car park event
 	@Override
 	public void carEventDetected(String detectorId, boolean detected) {
 		log("Car Event Detected: " + detectorId + "Car Detected" + detected);
