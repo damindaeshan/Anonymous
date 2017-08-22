@@ -12,7 +12,10 @@ public class PaystationController
 	private IAdhocTicket  adhocTicket = null;
 	private float charge;
 	
-	
+	 public PaystationController() {
+		
+	}
+		
 
 	public PaystationController(ICarpark carpark, IPaystationUI ui) {
 		this.carpark = carpark;
