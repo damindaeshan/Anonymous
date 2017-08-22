@@ -1,10 +1,21 @@
 package bcccp.tickets.adhoc;
-/*    Full Name : Jayasinghalage Pradeep Lakshitha    CSU ID    : 11617040    Subject   : Professional Programming Practice    Brief Description of the program :
 
-    This is the AdhockTicketFactory.java class of the Barchester City Council Car Park System. 
-    This class is implements to the IadhocTicketFactory interface and there is a overrided 
-    method called make(). In this make() method(), user can create a new ticket with an unique barcode.
-        Assignment No. 2*/
+/*
+
+Full Name : Jayasinghalage Pradeep Lakshitha
+CSU ID    : 11617040
+Subject   : Professional Programming Practice
+
+Brief Description of the program :
+
+This is the AdhockTicketFactory.java class of the Barchester City Council Car Park System. 
+This class is implements to the IadhocTicketFactory interface and there is a overrided 
+method called make(). In this make() method(), user can create a new ticket with an 
+unique barcode.
+
+Assignment No. 2
+
+*/
 public class AdhocTicketFactory implements IAdhocTicketFactory {
 
 	//This is the overrided method of IadhocTicketFactory
