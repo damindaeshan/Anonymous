@@ -46,8 +46,11 @@ public class PaystationController
 
 	@Override
 	public void ticketTaken() {
-		// TODO Auto-generated method stub
-		
+		if (state.equals(STATE.ISSUED) || state.equals(STATE.VALIDATED)) {
+			setState(STATE.TAKEN);
+		} else {
+			ui.beep();
+		}
 	}
 
 	
