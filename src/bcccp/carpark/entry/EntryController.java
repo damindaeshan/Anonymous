@@ -40,8 +40,10 @@ public class EntryController
 	private IAdhocTicket  adhocTicket = null;
 	private long entryTime;
 	private String seasonTicketId = null;
-	
-	
+
+	private enum STATE {IDLE, BLOCKED, EXITED, REJECTED, WAITING, EXITING, PROCESSED, TAKEN, ISSUED, VALIDATED, FULL}
+	private STATE state;
+	private STATE initState;
 
 	public EntryController(Carpark carpark, IGate entryGate, 
 			ICarSensor os, 
@@ -87,6 +89,15 @@ public class EntryController
 		
 	}
 
+	/**
+	 * This method used to create the log file
+	 * 
+	 * @param message
+	 */
+	private void log(String message) {
+		System.out.println("Exit Controller : " + message);
+	}
+
 
 
 	@Override
@@ -95,6 +106,4 @@ public class EntryController
 		
 	}
 
-	
-	
 }
