@@ -69,7 +69,7 @@ public class ExitController
 
 
 	/**
-	 * This method used to set the state
+	 * This method used to set the state when car entering an exiting
 	 * 
 	 * @param idle
 	 */
