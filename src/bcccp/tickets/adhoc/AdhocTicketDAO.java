@@ -1,6 +1,26 @@
 package bcccp.tickets.adhoc;
 
+/*
+    Full Name : Jayasinghalage Pradeep Lakshitha
+    CSU ID    : 11617040
+    Subject   : Professional Programming Practice
+
+    Brief Description of the program :
+
+    This is the AdhocTicketDAO java class of the Barchester City Council Car Park System.
+    This class contains an overrided constructor and three methods such as
+    createTicket(), findTicketByBarcode() and getCurrentTickets().
+    createTicket() method will create a ticket using carparkId and 
+    findTicketByBarcode() method will use to search generated ticket by 
+    using barcode. Also getCurrentTickets() method will return the generated tickets.
+
+
+    Assignment No. 2
+
+*/
+
 import java.util.List;
+import java.util.ArrayList;
 
 public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 
