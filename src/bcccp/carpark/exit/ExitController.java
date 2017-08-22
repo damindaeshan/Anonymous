@@ -151,7 +151,11 @@ public class ExitController
 	}
 
 
-
+	/**
+	 * This method used to set the status of the car park
+	 * when car event is detected according to the detectedId, detected or not,
+	 * inside or outside sensor Id
+	 */
 	@Override
 	public void carEventDetected(String detectorId, boolean detected) {
 		log("Car Event Detected: " + detectorId + "Car Detected" + detected);
