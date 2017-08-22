@@ -28,7 +28,18 @@ public class Carpark implements ICarpark {
 
 	@Override
 	public void register(ICarparkObserver observer) {
-		// TODO Auto-generated method stub
+		File writeUsageFile = new File("../Anonymous/CarParkData.txt");
+		if(writeUsageFile.exists()) {
+			try {
+				PrintWriter writeFile = new PrintWriter(writeUsageFile);
+				writeFile.print(carparkId);
+				writeFile.print("\t");
+				writeFile.print(observer);				
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 	}
 
