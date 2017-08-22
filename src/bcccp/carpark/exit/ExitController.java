@@ -42,6 +42,15 @@ public class ExitController
 	private STATE state;
 	private STATE initState;
 
+	/**
+	 * Create ExitController constructor with five parameters.
+	 * 
+	 * @param carpark
+	 * @param exitGate
+	 * @param is
+	 * @param os
+	 * @param ui
+	 */
 	public ExitController(Carpark carpark, IGate exitGate, 
 			ICarSensor is,
 			ICarSensor os, 
