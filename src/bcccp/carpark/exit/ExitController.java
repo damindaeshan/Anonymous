@@ -99,8 +99,26 @@ public class ExitController
 
 	@Override
 	public void ticketInserted(String ticketStr) {
-		// TODO Auto-generated method stub
-		
+		if (state.equals(STATE.WAITING)) {
+			if (ticketStr.substring(0, 1).equals('A')) {
+				adhocTicket = carpark.getAdhocTicket(ticketStr);
+				if (adhocTicket != null && adhocTicket.isPaid()) {
+					setState(STATE.PROCESSED);
+				} else {
+					setState(STATE.REJECTED);
+				}
+			} else if (carpark.isSeasonTicketValid(ticketStr) && carpark.isSeasonTicketInUse(ticketStr)) {
+				setState(STATE.PROCESSED);
+				seasonTicketId = ticketStr;
+			} else {
+				ui.beep();
+				setState(STATE.REJECTED);
+			}
+		} else {
+			ui.beep();
+			ui.discardTicket();
+			setState(STATE.REJECTED);
+		}
 	}
 
 
