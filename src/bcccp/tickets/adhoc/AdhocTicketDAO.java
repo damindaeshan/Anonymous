@@ -34,31 +34,49 @@ public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 	public AdhocTicketDAO(IAdhocTicketFactory factory) {
 		this.issued_Adhoc_Tickets = new ArrayList<IAdhocTicket>();
 		this.factory = factory;
-                this.currentTicketNo = 0;
+                this.currentTicketNo = 1;
 	}
 
 
 
 	@Override
 	public IAdhocTicket createTicket(String carparkId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		IAdhocTicket ticket = factory.make(carparkId, currentTicketNo++);
+
+    		list.add(ticket);
+
+    		return ticket;
 	}
 
 
 
 	@Override
 	public IAdhocTicket findTicketByBarcode(String barcode) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		IAdhocTicket ticket = null;
+
+   		Iterator<IAdhocTicket> itr = list.iterator();
+
+    			while (itr.hasNext()) {
+
+      				if (itr.next().getBarcode().equals(barcode)) {
+
+        				ticket = itr.next();
+
+        			break;
+      				}
+    			}
+
+    	return ticket;
 	}
 
 
 
 	@Override
 	public List<IAdhocTicket> getCurrentTickets() {
-		// TODO Auto-generated method stub
-		return null;
+		return list.stream().filter(c -> c.isCurrent() == true).collect(Collectors.toList());
+  
 	}
 
 	
