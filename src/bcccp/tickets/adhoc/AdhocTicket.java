@@ -57,14 +57,15 @@ public class AdhocTicket implements IAdhocTicket {
 
 	@Override
 	public boolean isCurrent() {
-		// TODO Auto-generated method stub
-		return false;
+		return entryDateTime > 0 && paidDateTime == 0;
 	}
 
 
 	@Override
 	public void pay(long dateTime, float charge) {
-		// TODO Auto-generated method stub
+		paidDateTime = dateTime;
+
+    		this.charge = charge;
 		
 	}
 
@@ -77,8 +78,7 @@ public class AdhocTicket implements IAdhocTicket {
 
 	@Override
 	public boolean isPaid() {
-		// TODO Auto-generated method stub
-		return false;
+		return paidDateTime > 0;
 	}
 
 
@@ -90,7 +90,7 @@ public class AdhocTicket implements IAdhocTicket {
 
 	@Override
 	public void exit(long dateTime) {
-		// TODO Auto-generated method stub
+		exitDateTime = dateTime;
 		
 	}
 
@@ -103,8 +103,7 @@ public class AdhocTicket implements IAdhocTicket {
 
 	@Override
 	public boolean hasExited() {
-		// TODO Auto-generated method stub
-		return false;
+		return exitDateTime > 0;
 	}
 
 	
