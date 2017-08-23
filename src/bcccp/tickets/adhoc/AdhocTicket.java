@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AdhocTicket implements IAdhocTicket {
 	
+	//Start - Variable Declaration 
 	private String carparkId;
 	private int ticketNo;
 	private long entryDateTime;
@@ -11,10 +12,15 @@ public class AdhocTicket implements IAdhocTicket {
 	private long exitDateTime;
 	private float charge;
 	private String barcode;
+	//End - Variable Declaration
 
+	//Define an enum
 	private enum TICKET_STATE {Ticket_Issued, Car_Parked, Ticket_Paid, Car_Exited}
+
+	//Define an enum variable
     	private TICKET_STATE ticket_State;
 	
+	//Overrided constructor 
 	public AdhocTicket(String carparkId, int ticketNo, String barcode) {
 		this.carparkId = carparkId;
         	this.ticketNo = ticketNo;
@@ -23,45 +29,45 @@ public class AdhocTicket implements IAdhocTicket {
 	}
 
 
-	@Override
+	//This overrided method will return the ticket no 
 	public int getTicketNo() {
 		return this.ticketNo;
 	}
 
 
-	@Override
+	//This overrided method will return the barcode 
 	public String getBarcode() {
 		return this.barcode;
 	}
 
 
-	@Override
+	//This overrided method will return the car park id
 	public String getCarparkId() {
 		return this.carparkId;
 	}
 
 
-	@Override
+	//This overrided method will set the entry date and time
 	public void enter(long dateTime) {
 		this.entryDateTime = dateTime;
 		
 	}
 
 
-	@Override
+	//This overrided method will return the entry date and time 
 	public long getEntryDateTime() {
 		Date d = new Date();
 		return d.getTime();
 	}
 
 
-	@Override
+	//This overrided method will return the status
 	public boolean isCurrent() {
 		return entryDateTime > 0 && paidDateTime == 0;
 	}
 
 
-	@Override
+	//This overrided method will set the payment
 	public void pay(long dateTime, float charge) {
 		paidDateTime = dateTime;
 
@@ -70,38 +76,38 @@ public class AdhocTicket implements IAdhocTicket {
 	}
 
 
-	@Override
+	//This overrided method will return the paid date and time
 	public long getPaidDateTime() {
 		return this.paidDateTime;
 	}
 
 
-	@Override
+	//This overrided method will return the paid status
 	public boolean isPaid() {
 		return paidDateTime > 0;
 	}
 
 
-	@Override
+	//This overrided method will return the charge
 	public float getCharge() {
 		return this.charge;
 	}
 
 
-	@Override
+	//This overrided method will set the exit date and time
 	public void exit(long dateTime) {
 		exitDateTime = dateTime;
 		
 	}
 
 
-	@Override
+	//This overrided method will return the exit date and time
 	public long getExitDateTime() {
 		return this.exitDateTime;
 	}
 
 
-	@Override
+	//This overrided method will return the status of exit
 	public boolean hasExited() {
 		return exitDateTime > 0;
 	}
