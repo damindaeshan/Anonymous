@@ -92,7 +92,10 @@ public class EntryController
 	}
 
 
-
+	/**
+	 * This method is override method and used to set the status of the car park
+	 * when ticket inserted.
+	 */
 	@Override
 	public void ticketInserted(String barcode) {
 		if (state.equals(STATE.WAITING)) {
