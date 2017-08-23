@@ -123,7 +123,9 @@ public class EntryController
 	}
 
 
-
+	/**
+	 * This method used to notify the car park event to the user
+	 */
 	@Override
 	public void notifyCarparkEvent() {
 		if (state.equals(STATE.FULL)) {
