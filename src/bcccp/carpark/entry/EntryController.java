@@ -109,7 +109,10 @@ public class EntryController
 	}
 
 
-
+	/**
+	 * This method is override method and used to set the status of the car park
+	 * when ticket taken.
+	 */
 	@Override
 	public void ticketTaken() {
 		if (state.equals(STATE.ISSUED) || state.equals(STATE.VALIDATED)) {
