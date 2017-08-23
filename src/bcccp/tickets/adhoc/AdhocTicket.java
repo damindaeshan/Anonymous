@@ -1,5 +1,20 @@
 package bcccp.tickets.adhoc;
 
+/*
+    Full Name : Jayasinghalage Pradeep Lakshitha
+    CSU ID    : 11617040
+    Subject   : Professional Programming Practice
+
+    Brief Description of the program :
+
+    This is the AdhocTicket java class of the Barchester City Council Car Park System.
+    This program will issue tickets for casual capark users.
+
+
+    Assignment No. 2
+
+*/
+
 import java.util.Date;
 
 public class AdhocTicket implements IAdhocTicket {
