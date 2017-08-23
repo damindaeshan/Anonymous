@@ -45,6 +45,15 @@ public class EntryController
 	private STATE state;
 	private STATE initState;
 
+	/**
+	 * Create EntryController constructor with five parameters.
+	 * 
+	 * @param carpark
+	 * @param entryGate
+	 * @param os
+	 * @param is
+	 * @param ui
+	 */
 	public EntryController(Carpark carpark, IGate entryGate, 
 			ICarSensor os, 
 			ICarSensor is,
