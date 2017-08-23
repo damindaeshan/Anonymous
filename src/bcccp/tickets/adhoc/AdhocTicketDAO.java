@@ -24,6 +24,8 @@ import java.util.ArrayList;
 
 public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 
+
+	//Define class types and variables
 	private IAdhocTicketFactory factory;
 	private int currentTicketNo;
 
@@ -39,7 +41,7 @@ public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 
 
 
-	@Override
+	//This overrided method will create a ticket and return it
 	public IAdhocTicket createTicket(String carparkId) {
 		
 		IAdhocTicket ticket = factory.make(carparkId, currentTicketNo++);
@@ -51,7 +53,7 @@ public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 
 
 
-	@Override
+	//This overrided method will find the generated ticket by using barcode and return it
 	public IAdhocTicket findTicketByBarcode(String barcode) {
 		
 		IAdhocTicket ticket = null;
@@ -73,7 +75,7 @@ public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 
 
 
-	@Override
+	//This overrided method will return the generated tickets
 	public List<IAdhocTicket> getCurrentTickets() {
 		return list.stream().filter(c -> c.isCurrent() == true).collect(Collectors.toList());
   
