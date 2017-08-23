@@ -67,7 +67,10 @@ public class EntryController
 	}
 
 
-
+	/**
+	 * This method used to set status when 
+	 * button push for the car park entry 
+	 */
 	@Override
 	public void buttonPushed() {
 		if (state.equals(STATE.WAITING)) {
