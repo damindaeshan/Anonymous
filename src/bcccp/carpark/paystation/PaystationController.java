@@ -34,8 +34,8 @@ public class PaystationController
 
 	@Override
 	public void ticketPaid() {
-		// TODO Auto-generated method stub
-		
+		// If the the car has session ticket car is eligible to park.
+		// It should be paid the ticket
 	}
 
 	@Override
