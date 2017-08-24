@@ -16,13 +16,10 @@ public class PaystationController
 		
 	}
 		
-
 	public PaystationController(ICarpark carpark, IPaystationUI ui) {
 		this.carpark = carpark;
 		this.ui = ui;
 	}
-
-
 
 	@Override
 	public void ticketInserted(String barcode) {
@@ -35,14 +32,11 @@ public class PaystationController
 		}
 	}
 
-
 	@Override
 	public void ticketPaid() {
 		// TODO Auto-generated method stub
 		
 	}
-
-
 
 	@Override
 	public void ticketTaken() {
@@ -51,8 +45,6 @@ public class PaystationController
 		} else {
 			ui.beep();
 		}
-	}
-
-	
+	}	
 	
 }
