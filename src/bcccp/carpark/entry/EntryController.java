@@ -26,10 +26,7 @@ import bcccp.tickets.adhoc.IAdhocTicket;
  * @author 11619843
  *
  */
-public class EntryController 
-		implements ICarSensorResponder,
-				   ICarparkObserver,
-		           IEntryController {
+public class EntryController implements ICarSensorResponder, ICarparkObserver, IEntryController {
 	
 	private IGate entryGate;
 	private ICarSensor outsideSensor; 
