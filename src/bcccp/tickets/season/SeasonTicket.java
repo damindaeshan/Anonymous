@@ -108,7 +108,25 @@ public class SeasonTicket implements ISeasonTicket {
 
 	@Override
 	public void endUsage(long dateTime) {
-		// TODO Auto-generated method stub
+		
+		try {
+			
+			Scanner readUsageRecord = new Scanner(new File("../Anonymous/UsageRecordData.txt"));
+			
+			while(readUsageRecord.hasNext()){
+				String usageLine = readUsageRecord.nextLine();
+				if(usageLine.contains(ticketId)){
+					String[] usageRecArray = usageLine.split("\t");
+					UsageRecord usageRec = new UsageRecord();
+					usageRec.ticketId = usageRecArray[0];
+					usageRec.startDateTime = Date.parse(usageRecArray[1]);
+					usageRec.endDateTime = dateTime;
+			}
+		  }
+				
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -129,7 +147,6 @@ public class SeasonTicket implements ISeasonTicket {
 					UsageRecord usageRec = new UsageRecord();
 					usageRec.ticketId = usageRecArray[0];
 					usageRec.startDateTime = Date.parse(usageRecArray[1]);
-					usageRec.endDateTime =  Date.parse(usageRecArray[2]);
 					
 					usageRecordList.add(usageRec);
 				}
