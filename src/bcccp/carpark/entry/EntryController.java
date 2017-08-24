@@ -156,6 +156,11 @@ public class EntryController implements ICarSensorResponder, ICarparkObserver, I
 			state = STATE.IDLE;
 			ui.display("IDLE");
 			break;
+		case EXITED:
+			log("set State : EXITED");
+			state = STATE.EXITED;
+			ui.display("EXITED");
+			break;	
 		default:
 			break;
 			// In-progress to do the other status
