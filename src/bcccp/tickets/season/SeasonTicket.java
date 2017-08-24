@@ -106,7 +106,11 @@ public class SeasonTicket implements ISeasonTicket {
 	public IUsageRecord getCurrentUsageRecord() {
 		return null;
 	}
-
+/**
+ * Method used to end usage of season Ticket 
+ *  @ Param long dateTime - This is the date time of end usage of season ticket
+ *  @ Return void 
+ */
 	@Override
 	public void endUsage(long dateTime) {
 		
