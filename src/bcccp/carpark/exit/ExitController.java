@@ -24,9 +24,7 @@ import bcccp.tickets.adhoc.IAdhocTicket;
  * @author 11619843
  *
  */
-public class ExitController 
-		implements ICarSensorResponder,
-		           IExitController {
+public class ExitController implements ICarSensorResponder, IExitController {
 	
 	private IGate exitGate;
 	private ICarSensor insideSensor;
