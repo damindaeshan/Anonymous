@@ -2,6 +2,7 @@ package bcccp.tickets.season;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Date;
 import java.util.Scanner;
 
 import bcccp.tickets.season.ISeasonTicket;
@@ -64,8 +65,31 @@ public class SeasonTicketDAO implements ISeasonTicketDAO {
 
 	@Override
 	public ISeasonTicket findTicketById(String ticketId) {
-		// TODO Auto-generated method stub
-		return null;
+		SeasonTicket seaTicket = new SeasonTicket();
+
+		try {
+			
+			Scanner readUsageRecord = new Scanner(new File("../Anonymous/UsageRecordData.txt"));
+			
+			while(readUsageRecord.hasNext()){
+				String usageLine = readUsageRecord.nextLine();
+				if(usageLine.contains(ticketId)){
+					String[] seasonTiRec = usageLine.split("\t");
+					
+					seaTicket.setTicketId(seasonTiRec[0]);
+					seaTicket.setCarparkId(seasonTiRec[1]);
+					seaTicket.setStartValidPeriod(Date.parse(seasonTiRec[2]));		
+					seaTicket.setEndValidPeriod(Date.parse(seasonTiRec[3]));
+					
+					
+				}
+			}
+				
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		
+		return seaTicket;
 	}
 
 
