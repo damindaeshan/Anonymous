@@ -34,7 +34,6 @@ public class Carpark implements ICarpark {
 		this.seasonTicketDAO = seasonTicketDAO;
 	}
 
-
 	/**
 	 * This method used for register the observer to enter the carpark
 	 */
@@ -56,8 +55,6 @@ public class Carpark implements ICarpark {
 		
 	}
 
-
-
 	@Override
 	public void deregister(ICarparkObserver observer) {
 		File writeUsageFile = new File("../Anonymous/CarParkData.txt");
@@ -76,14 +73,10 @@ public class Carpark implements ICarpark {
 		
 	}
 
-
-
 	@Override
 	public String getName() {
 		return carparkId;
 	}
-
-
 
 	@Override
 	public boolean isFull() {
@@ -91,15 +84,11 @@ public class Carpark implements ICarpark {
 		return false;
 	}
 
-
-
 	@Override
 	public IAdhocTicket issueAdhocTicket() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
 	@Override
 	public void recordAdhocTicketEntry() {
@@ -107,15 +96,11 @@ public class Carpark implements ICarpark {
 		
 	}
 
-
-
 	@Override
 	public IAdhocTicket getAdhocTicket(String barcode) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
 	@Override
 	public float calculateAddHocTicketCharge(long entryDateTime) {
@@ -123,15 +108,11 @@ public class Carpark implements ICarpark {
 		return 0;
 	}
 
-
-
 	@Override
 	public void recordAdhocTicketExit() {
 		// TODO Auto-generated method stub
 		
 	}
-
-
 
 	@Override
 	public void registerSeasonTicket(ISeasonTicket seasonTicket) {
@@ -139,15 +120,11 @@ public class Carpark implements ICarpark {
 		
 	}
 
-
-
 	@Override
 	public void deregisterSeasonTicket(ISeasonTicket seasonTicket) {
 		// TODO Auto-generated method stub
 		
 	}
-
-
 
 	@Override
 	public boolean isSeasonTicketValid(String ticketId) {
@@ -155,15 +132,11 @@ public class Carpark implements ICarpark {
 		return false;
 	}
 
-
-
 	@Override
 	public boolean isSeasonTicketInUse(String ticketId) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-
 
 	@Override
 	public void recordSeasonTicketEntry(String ticketId) {
@@ -171,15 +144,9 @@ public class Carpark implements ICarpark {
 		
 	}
 
-
-
 	@Override
 	public void recordSeasonTicketExit(String ticketId) {
 		// TODO Auto-generated method stub
 		
 	}
-
-	
-	
-
 }
