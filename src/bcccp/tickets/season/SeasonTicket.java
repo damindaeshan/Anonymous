@@ -1,3 +1,7 @@
+/**
+ * Season Class used to create object of season ticket users
+ *  
+ */
 package bcccp.tickets.season;
 
 import java.io.File;
