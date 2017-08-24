@@ -51,10 +51,7 @@ public class EntryController implements ICarSensorResponder, ICarparkObserver, I
 	 * @param is
 	 * @param ui
 	 */
-	public EntryController(Carpark carpark, IGate entryGate, 
-			ICarSensor os, 
-			ICarSensor is,
-			IEntryUI ui) {
+	public EntryController(Carpark carpark, IGate entryGate,ICarSensor os, ICarSensor is, IEntryUI ui) {
 		this.carpark = carpark;
 		this.entryGate = entryGate;
 		this.outsideSensor = os;
