@@ -60,7 +60,6 @@ public class EntryController implements ICarSensorResponder, ICarparkObserver, I
 		
 	}
 
-
 	/**
 	 * This method used to set status when 
 	 * button push for the car park entry 
@@ -85,7 +84,6 @@ public class EntryController implements ICarSensorResponder, ICarparkObserver, I
 		}
 	}
 
-
 	/**
 	 * This method is override method and used to set the status of the car park
 	 * when ticket inserted.
@@ -102,7 +100,6 @@ public class EntryController implements ICarSensorResponder, ICarparkObserver, I
 		}
 	}
 
-
 	/**
 	 * This method is override method and used to set the status of the car park
 	 * when ticket taken.
@@ -115,7 +112,6 @@ public class EntryController implements ICarSensorResponder, ICarparkObserver, I
 			ui.beep();
 		}
 	}
-
 
 	/**
 	 * This method used to notify the car park event to the user
@@ -195,5 +191,4 @@ public class EntryController implements ICarSensorResponder, ICarparkObserver, I
 			break;
 		}
 	}
-
 }
