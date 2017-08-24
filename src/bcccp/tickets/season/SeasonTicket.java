@@ -83,6 +83,11 @@ public class SeasonTicket implements ISeasonTicket {
 		return false;
 	}
 
+/**
+ * Method used to record usage of season Ticket 
+ *  @ Param IUsgeRecord - This is the usage record details 
+ *  @ Return void 
+ */
 	@Override
 	public void recordUsage(IUsageRecord record) {
 		File writeUsageFile = new File("../Anonymous/UsageRecordData.txt");
