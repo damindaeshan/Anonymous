@@ -6,7 +6,10 @@ import bcccp.tickets.adhoc.IAdhocTicket;
 import bcccp.tickets.adhoc.IAdhocTicketDAO;
 import bcccp.tickets.season.ISeasonTicket;
 import bcccp.tickets.season.ISeasonTicketDAO;
-
+/**
+ * this file use for implement the coding for the car park. It has register(), deregister(), 
+ * issueAdhocTicket(), isFull(), etc
+ */
 public class Carpark implements ICarpark {
 	
 	private List<ICarparkObserver> observers;
