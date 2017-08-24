@@ -139,7 +139,11 @@ public class SeasonTicket implements ISeasonTicket {
 		}
 		
 	}
-
+/**
+ * Method used to get current usage record 
+ *  @ Param 
+ *  @ Return List of usage records  
+ */
 	@Override
 	public List<IUsageRecord> getUsageRecords() {
 		
