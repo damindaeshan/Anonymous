@@ -34,10 +34,10 @@ public class SeasonTicket implements ISeasonTicket {
 		this.startValidPeriod = startValidPeriod;
 		this.endValidPeriod = endValidPeriod;
 	}
-	
+	//No Argument constructor 
 	public SeasonTicket() {
 	}
-
+	
 	public void setTicketId(String ticketId) {
 		this.ticketId = ticketId;
 	}
