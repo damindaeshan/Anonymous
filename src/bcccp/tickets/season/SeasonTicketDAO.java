@@ -111,7 +111,12 @@ public class SeasonTicketDAO implements ISeasonTicketDAO {
 
 	@Override
 	public void recordTicketExit(String ticketId) {
-		// TODO Auto-generated method stub
+		UsageRecord newTicketUsage = new UsageRecord();
+		newTicketUsage.ticketId = ticketId;
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		newTicketUsage.startDateTime = 1413972425000L;
+		newTicketUsage.endDateTime = 1413972425000L;
 		
 	}
 	
