@@ -22,7 +22,6 @@ public class SeasonTicketDAO implements ISeasonTicketDAO {
 		seasonTick.setTicketId(ticket.getId());
 		seasonTick.setCarparkId(ticket.getCarparkId());
 		seasonTick.setStartValidPeriod(ticket.getStartValidPeriod());
-		seasonTick.setEndValidPeriod(ticket.getEndValidPeriod());
 		
 	}
 
