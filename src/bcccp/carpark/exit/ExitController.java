@@ -61,8 +61,6 @@ public class ExitController implements ICarSensorResponder, IExitController {
 		
 	}
 
-
-
 	/**
 	 * This method used to set the state when car entering an exiting
 	 * 
@@ -93,8 +91,6 @@ public class ExitController implements ICarSensorResponder, IExitController {
 		}
 	}
 
-
-
 	/**
 	 * This method used to create the log file
 	 * 
@@ -103,7 +99,6 @@ public class ExitController implements ICarSensorResponder, IExitController {
 	private void log(String message) {
 		System.out.println("Exit Controller : " + message);
 	}
-
 
 	/**
 	 * This method is override method and used to set the status of the car park
@@ -132,7 +127,6 @@ public class ExitController implements ICarSensorResponder, IExitController {
 			setState(STATE.REJECTED);
 		}
 	}
-
 
 	/**
 	 * This method is override method and used to set the status of the car park
@@ -176,7 +170,5 @@ public class ExitController implements ICarSensorResponder, IExitController {
 			break;
 		}
 	}
-
-	
 	
 }
