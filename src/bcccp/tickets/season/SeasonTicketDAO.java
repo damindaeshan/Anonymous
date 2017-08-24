@@ -1,5 +1,9 @@
 package bcccp.tickets.season;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import bcccp.tickets.season.ISeasonTicket;
 import bcccp.tickets.season.IUsageRecordFactory;
 
@@ -40,8 +44,20 @@ public class SeasonTicketDAO implements ISeasonTicketDAO {
 
 	@Override
 	public int getNumberOfTickets() {
-		// TODO Auto-generated method stub
-		return 0;
+		int countLines = 0;
+		try {
+			Scanner readUsageRecord = new Scanner(new File("../Anonymous/SeasonTicketData.txt"));
+			
+			while(readUsageRecord.hasNext()){
+				countLines++;
+				
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return countLines;
 	}
 
 
