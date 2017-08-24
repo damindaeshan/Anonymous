@@ -28,7 +28,11 @@ public class SeasonTicketDAO implements ISeasonTicketDAO {
 
 	@Override
 	public void deregisterTicket(ISeasonTicket ticket) {
-		// TODO Auto-generated method stub
+		SeasonTicket seasonTick = new SeasonTicket();
+		seasonTick.setTicketId(ticket.getId());
+		seasonTick.setCarparkId(ticket.getCarparkId());
+		seasonTick.setStartValidPeriod(ticket.getStartValidPeriod());
+		seasonTick.setEndValidPeriod(ticket.getEndValidPeriod());
 		
 	}
 
