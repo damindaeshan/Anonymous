@@ -135,7 +135,7 @@ public class EntryController implements ICarSensorResponder, ICarparkObserver, I
 	 * @param message
 	 */
 	private void log(String message) {
-		System.out.println("Exit Controller : " + message);
+		System.out.println("Entry Controller : " + message);
 	}
 
 	/**
