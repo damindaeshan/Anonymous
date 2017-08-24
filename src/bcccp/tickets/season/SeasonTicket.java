@@ -37,15 +37,15 @@ public class SeasonTicket implements ISeasonTicket {
 	//No Argument constructor 
 	public SeasonTicket() {
 	}
-	
+	//Set ticket Id 
 	public void setTicketId(String ticketId) {
 		this.ticketId = ticketId;
 	}
-
+	//Set caroark id
 	public void setCarparkId(String carparkId) {
 		this.carparkId = carparkId;
 	}
-
+	//Set start valid period 
 	public void setStartValidPeriod(long startValidPeriod) {
 		this.startValidPeriod = startValidPeriod;
 	}
