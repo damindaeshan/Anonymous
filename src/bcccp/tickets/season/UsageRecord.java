@@ -1,5 +1,9 @@
 package bcccp.tickets.season;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 // Usage record class that used to implement Usage record interface 
 public class UsageRecord implements IUsageRecord {
 	
@@ -20,7 +24,13 @@ public class UsageRecord implements IUsageRecord {
 	//
 	@Override
 	public void finalise(long endDateTime) {
-		// TODO Auto-generated method stub
+		UsageRecord newTicketUsage = new UsageRecord();
+		newTicketUsage.ticketId = ticketId;
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		newTicketUsage.startDateTime = 1413972425000L;
+		newTicketUsage.endDateTime = 1413972425000L;
+		
 		
 	}
 
