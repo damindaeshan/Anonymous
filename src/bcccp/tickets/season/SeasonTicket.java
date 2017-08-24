@@ -64,19 +64,20 @@ public class SeasonTicket implements ISeasonTicket {
 		
 		return this.carparkId;
 	}
-
+	//get Start Valid period 
 	@Override
 	public long getStartValidPeriod() {
 		
 		return this.startValidPeriod;
 	}
 
+	//Get End Valid Period 
 	@Override
 	public long getEndValidPeriod() {
 		
 		return this.endValidPeriod;
 	}
-
+	//Check inuse 
 	@Override
 	public boolean inUse() {
 		return false;
