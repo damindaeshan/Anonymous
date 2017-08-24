@@ -49,10 +49,7 @@ public class ExitController implements ICarSensorResponder, IExitController {
 	 * @param os
 	 * @param ui
 	 */
-	public ExitController(Carpark carpark, IGate exitGate, 
-			ICarSensor is,
-			ICarSensor os, 
-			IExitUI ui) {
+	public ExitController(Carpark carpark, IGate exitGate, ICarSensor is, ICarSensor os, IExitUI ui) {
 		this.carpark = carpark;
 		this.exitGate = exitGate;
 		this.outsideSensor = os;
