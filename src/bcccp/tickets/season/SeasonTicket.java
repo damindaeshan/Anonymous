@@ -36,7 +36,6 @@ public class SeasonTicket implements ISeasonTicket {
 	}
 	
 	public SeasonTicket() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public void setTicketId(String ticketId) {
@@ -80,7 +79,6 @@ public class SeasonTicket implements ISeasonTicket {
 
 	@Override
 	public boolean inUse() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -96,7 +94,6 @@ public class SeasonTicket implements ISeasonTicket {
 				writeFile.print("\t");
 				writeFile.print(record.getEndTime());
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -106,7 +103,6 @@ public class SeasonTicket implements ISeasonTicket {
 
 	@Override
 	public IUsageRecord getCurrentUsageRecord() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -159,7 +155,6 @@ public class SeasonTicket implements ISeasonTicket {
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
-			// TODO Auto-generated catch block
 			return usageRecordList;
 			
 		}
