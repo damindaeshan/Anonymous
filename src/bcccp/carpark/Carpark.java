@@ -35,7 +35,9 @@ public class Carpark implements ICarpark {
 	}
 
 
-
+	/**
+	 * This method used for register the observer to enter the carpark
+	 */
 	@Override
 	public void register(ICarparkObserver observer) {
 		File writeUsageFile = new File("../Anonymous/CarParkData.txt");
