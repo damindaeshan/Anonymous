@@ -2,6 +2,9 @@ package bcccp.tickets.season;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -96,8 +99,12 @@ public class SeasonTicketDAO implements ISeasonTicketDAO {
 
 	@Override
 	public void recordTicketEntry(String ticketId) {
-		// TODO Auto-generated method stub
-		
+		UsageRecord newTicketUsage = new UsageRecord();
+		newTicketUsage.ticketId = ticketId;
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		newTicketUsage.startDateTime = 1413972425000L;
+		newTicketUsage.endDateTime = (Long) null;
 	}
 
 
