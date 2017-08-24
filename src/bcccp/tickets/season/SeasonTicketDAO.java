@@ -1,3 +1,6 @@
+/**
+ * SeasonTicketDAO class 
+ */
 package bcccp.tickets.season;
 
 import java.io.File;
@@ -16,13 +19,17 @@ public class SeasonTicketDAO implements ISeasonTicketDAO {
 	private IUsageRecordFactory factory;
 
 	
-	
+	//Constructor of SeasonTicketDAO Class
 	public SeasonTicketDAO(IUsageRecordFactory factory) {
-		//TOD Implement constructor
+
 	}
 
 
-
+/**
+ * Method used to register ticket
+ *  @ Param ISeasonTicket - Ticket object for register 
+ *  @ Return void 
+ */
 	@Override
 	public void registerTicket(ISeasonTicket ticket) {
 		
