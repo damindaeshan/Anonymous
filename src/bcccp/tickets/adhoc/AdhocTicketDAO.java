@@ -1,40 +1,84 @@
 package bcccp.tickets.adhoc;
 
+/*
+    Full Name : Jayasinghalage Pradeep Lakshitha
+    CSU ID    : 11617040
+    Subject   : Professional Programming Practice
+
+    Brief Description of the program :
+
+    This is the AdhocTicketDAO java class of the Barchester City Council Car Park System.
+    This class contains an overrided constructor and three methods such as
+    createTicket(), findTicketByBarcode() and getCurrentTickets().
+    createTicket() method will create a ticket using carparkId and 
+    findTicketByBarcode() method will use to search generated ticket by 
+    using barcode. Also getCurrentTickets() method will return the generated tickets.
+
+
+    Assignment No. 2
+
+*/
+
 import java.util.List;
+import java.util.ArrayList;
 
 public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 
+
+	//Define class types and variables
 	private IAdhocTicketFactory factory;
 	private int currentTicketNo;
 
+	//Declaration of the list variable
+	private List<IAdhocTicket> issued_Adhoc_Tickets;
 	
-	
+	//This is the constructor of this class and this will create an arraylist
 	public AdhocTicketDAO(IAdhocTicketFactory factory) {
-		//TODO Implement constructor
+		this.issued_Adhoc_Tickets = new ArrayList<IAdhocTicket>();
+		this.factory = factory;
+                this.currentTicketNo = 1;
 	}
 
 
 
-	@Override
+	//This overrided method will create a ticket and return it
 	public IAdhocTicket createTicket(String carparkId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		IAdhocTicket ticket = factory.make(carparkId, currentTicketNo++);
+
+    		list.add(ticket);
+
+    		return ticket;
 	}
 
 
 
-	@Override
+	//This overrided method will find the generated ticket by using barcode and return it
 	public IAdhocTicket findTicketByBarcode(String barcode) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		IAdhocTicket ticket = null;
+
+   		Iterator<IAdhocTicket> itr = list.iterator();
+
+    			while (itr.hasNext()) {
+
+      				if (itr.next().getBarcode().equals(barcode)) {
+
+        				ticket = itr.next();
+
+        			break;
+      				}
+    			}
+
+    	return ticket;
 	}
 
 
 
-	@Override
+	//This overrided method will return the generated tickets
 	public List<IAdhocTicket> getCurrentTickets() {
-		// TODO Auto-generated method stub
-		return null;
+		return list.stream().filter(c -> c.isCurrent() == true).collect(Collectors.toList());
+  
 	}
 
 	

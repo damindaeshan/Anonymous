@@ -21,7 +21,7 @@ import bcccp.tickets.season.SeasonTicketDAO;
 import bcccp.tickets.season.UsageRecordFactory;
 
 public class Main {
-
+//This is Main method oooooooo gggggg
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

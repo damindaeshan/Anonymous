@@ -1,9 +1,25 @@
 package bcccp.tickets.adhoc;
 
+/*
+    Full Name : Jayasinghalage Pradeep Lakshitha
+    CSU ID    : 11617040
+    Subject   : Professional Programming Practice
+
+    Brief Description of the program :
+
+    This is the AdhocTicket java class of the Barchester City Council Car Park System.
+    This program will issue tickets for casual capark users.
+
+
+    Assignment No. 2
+
+*/
+
 import java.util.Date;
 
 public class AdhocTicket implements IAdhocTicket {
 	
+	//Start - Variable Declaration 
 	private String carparkId;
 	private int ticketNo;
 	private long entryDateTime;
@@ -11,102 +27,104 @@ public class AdhocTicket implements IAdhocTicket {
 	private long exitDateTime;
 	private float charge;
 	private String barcode;
+	//End - Variable Declaration
 
+	//Define an enum
+	private enum TICKET_STATE {Ticket_Issued, Car_Parked, Ticket_Paid, Car_Exited}
+
+	//Define an enum variable
+    	private TICKET_STATE ticket_State;
 	
-	
+	//Overrided constructor 
 	public AdhocTicket(String carparkId, int ticketNo, String barcode) {
-		//TDO Implement constructor
+		this.carparkId = carparkId;
+        	this.ticketNo = ticketNo;
+        	this.barcode = barcode;
+		this.ticket_State = TICKET_STATE.Ticket_Issued;
 	}
 
 
-	@Override
+	//This overrided method will return the ticket no 
 	public int getTicketNo() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.ticketNo;
 	}
 
 
-	@Override
+	//This overrided method will return the barcode 
 	public String getBarcode() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.barcode;
 	}
 
 
-	@Override
+	//This overrided method will return the car park id
 	public String getCarparkId() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.carparkId;
 	}
 
 
-	@Override
+	//This overrided method will set the entry date and time
 	public void enter(long dateTime) {
-		// TODO Auto-generated method stub
+		this.entryDateTime = dateTime;
 		
 	}
 
 
-	@Override
+	//This overrided method will return the entry date and time 
 	public long getEntryDateTime() {
-		// TODO Auto-generated method stub
-		return 0;
+		Date d = new Date();
+		return d.getTime();
 	}
 
 
-	@Override
+	//This overrided method will return the status
 	public boolean isCurrent() {
-		// TODO Auto-generated method stub
-		return false;
+		return entryDateTime > 0 && paidDateTime == 0;
 	}
 
 
-	@Override
+	//This overrided method will set the payment
 	public void pay(long dateTime, float charge) {
-		// TODO Auto-generated method stub
+		paidDateTime = dateTime;
+
+    		this.charge = charge;
 		
 	}
 
 
-	@Override
+	//This overrided method will return the paid date and time
 	public long getPaidDateTime() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.paidDateTime;
 	}
 
 
-	@Override
+	//This overrided method will return the paid status
 	public boolean isPaid() {
-		// TODO Auto-generated method stub
-		return false;
+		return paidDateTime > 0;
 	}
 
 
-	@Override
+	//This overrided method will return the charge
 	public float getCharge() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.charge;
 	}
 
 
-	@Override
+	//This overrided method will set the exit date and time
 	public void exit(long dateTime) {
-		// TODO Auto-generated method stub
+		exitDateTime = dateTime;
 		
 	}
 
 
-	@Override
+	//This overrided method will return the exit date and time
 	public long getExitDateTime() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.exitDateTime;
 	}
 
 
-	@Override
+	//This overrided method will return the status of exit
 	public boolean hasExited() {
-		// TODO Auto-generated method stub
-		return false;
+		return exitDateTime > 0;
 	}
 
 	
