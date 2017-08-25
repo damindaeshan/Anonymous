@@ -12,36 +12,39 @@ public class PaystationController
 	private IAdhocTicket  adhocTicket = null;
 	private float charge;
 	
-	
-
-	public PaystationController(ICarpark carpark, IPaystationUI ui) {
-		//TODO Implement constructor
+	 public PaystationController() {
+		
 	}
-
-
+		
+	public PaystationController(ICarpark carpark, IPaystationUI ui) {
+		this.carpark = carpark;
+		this.ui = ui;
+	}
 
 	@Override
 	public void ticketInserted(String barcode) {
-		// TODO Auto-generated method stub
-		
+		if (state.equals(STATE.WAITING)) {
+			if (carpark.isSeasonTicketValid(barcode) && !carpark.isSeasonTicketInUse(barcode)) {
+				 
+			}
+		} else {
+			ui.beep();
+		}
 	}
-
-
 
 	@Override
 	public void ticketPaid() {
-		// TODO Auto-generated method stub
-		
+		// If the the car has session ticket car is eligible to park.
+		// It should be paid the ticket
 	}
-
-
 
 	@Override
 	public void ticketTaken() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
+		if (state.equals(STATE.ISSUED) || state.equals(STATE.VALIDATED)) {
+			setState(STATE.TAKEN);
+		} else {
+			ui.beep();
+		}
+	}	
 	
 }

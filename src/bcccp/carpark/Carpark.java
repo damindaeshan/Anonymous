@@ -6,7 +6,10 @@ import bcccp.tickets.adhoc.IAdhocTicket;
 import bcccp.tickets.adhoc.IAdhocTicketDAO;
 import bcccp.tickets.season.ISeasonTicket;
 import bcccp.tickets.season.ISeasonTicketDAO;
-
+/**
+ * this file use for implement the coding for the car park. It has register(), deregister(), 
+ * issueAdhocTicket(), isFull(), etc
+ */
 public class Carpark implements ICarpark {
 	
 	private List<ICarparkObserver> observers;
@@ -16,39 +19,64 @@ public class Carpark implements ICarpark {
 	private IAdhocTicketDAO adhocTicketDAO;
 	private ISeasonTicketDAO seasonTicketDAO;
 	
+	//Implement constructor
+	public Carpark(){
+		
+	}
 	
-	
+	// Created constructor
 	public Carpark(String name, int capacity, 
 			IAdhocTicketDAO adhocTicketDAO, 
 			ISeasonTicketDAO seasonTicketDAO) {
-		//TODO Implement constructor
+		this.carparkId = name;
+		this.capacity = capacity;
+		this.adhocTicketDAO = adhocTicketDAO;
+		this.seasonTicketDAO = seasonTicketDAO;
 	}
 
-
-
+	/**
+	 * This method used for register the observer to enter the carpark
+	 */
 	@Override
 	public void register(ICarparkObserver observer) {
-		// TODO Auto-generated method stub
+		File writeUsageFile = new File("../Anonymous/CarParkData.txt");
+		if(writeUsageFile.exists()) {
+			try {
+				PrintWriter writeFile = new PrintWriter(writeUsageFile);
+				writeFile.print(carparkId);
+				writeFile.print("\t");
+				writeFile.print(observer);	
+				writeFile.print("Registared");
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 	}
-
-
 
 	@Override
 	public void deregister(ICarparkObserver observer) {
-		// TODO Auto-generated method stub
+		File writeUsageFile = new File("../Anonymous/CarParkData.txt");
+		if(writeUsageFile.exists()) {
+			try {
+				PrintWriter writeFile = new PrintWriter(writeUsageFile);
+				writeFile.print(carparkId);
+				writeFile.print("\t");
+				writeFile.print(observer);	
+				writeFile.print("Unregisterd");
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		
 	}
 
-
-
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return carparkId;
 	}
-
-
 
 	@Override
 	public boolean isFull() {
@@ -56,15 +84,11 @@ public class Carpark implements ICarpark {
 		return false;
 	}
 
-
-
 	@Override
 	public IAdhocTicket issueAdhocTicket() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
 	@Override
 	public void recordAdhocTicketEntry() {
@@ -72,15 +96,11 @@ public class Carpark implements ICarpark {
 		
 	}
 
-
-
 	@Override
 	public IAdhocTicket getAdhocTicket(String barcode) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
 	@Override
 	public float calculateAddHocTicketCharge(long entryDateTime) {
@@ -88,15 +108,11 @@ public class Carpark implements ICarpark {
 		return 0;
 	}
 
-
-
 	@Override
 	public void recordAdhocTicketExit() {
 		// TODO Auto-generated method stub
 		
 	}
-
-
 
 	@Override
 	public void registerSeasonTicket(ISeasonTicket seasonTicket) {
@@ -104,15 +120,11 @@ public class Carpark implements ICarpark {
 		
 	}
 
-
-
 	@Override
 	public void deregisterSeasonTicket(ISeasonTicket seasonTicket) {
 		// TODO Auto-generated method stub
 		
 	}
-
-
 
 	@Override
 	public boolean isSeasonTicketValid(String ticketId) {
@@ -120,15 +132,11 @@ public class Carpark implements ICarpark {
 		return false;
 	}
 
-
-
 	@Override
 	public boolean isSeasonTicketInUse(String ticketId) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-
 
 	@Override
 	public void recordSeasonTicketEntry(String ticketId) {
@@ -136,15 +144,9 @@ public class Carpark implements ICarpark {
 		
 	}
 
-
-
 	@Override
 	public void recordSeasonTicketExit(String ticketId) {
 		// TODO Auto-generated method stub
 		
 	}
-
-	
-	
-
 }
