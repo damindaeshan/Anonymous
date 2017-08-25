@@ -1,8 +1,18 @@
+/**
+ * Season Class used to create object of season ticket users
+ *  
+ */
 package bcccp.tickets.season;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.Writer;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class SeasonTicket implements ISeasonTicket {
 	
@@ -18,62 +28,150 @@ public class SeasonTicket implements ISeasonTicket {
 			             String carparkId, 
 			             long startValidPeriod,
 			             long endValidPeriod) {
-		//TDO Implement constructor
+		
+		this.ticketId = ticketId;
+		this.carparkId = carparkId;
+		this.startValidPeriod = startValidPeriod;
+		this.endValidPeriod = endValidPeriod;
 	}
-
+	//No Argument constructor 
+	public SeasonTicket() {
+	}
+	//Set ticket Id 
+	public void setTicketId(String ticketId) {
+		this.ticketId = ticketId;
+	}
+	//Set caroark id
+	public void setCarparkId(String carparkId) {
+		this.carparkId = carparkId;
+	}
+	//Set start valid period 
+	public void setStartValidPeriod(long startValidPeriod) {
+		this.startValidPeriod = startValidPeriod;
+	}
+	//Set end valid period 
+	public void setEndValidPeriod(long endValidPeriod) {
+		this.endValidPeriod = endValidPeriod;
+	}
+	//get ticket id 
 	@Override
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getId() {	
+		return this.ticketId;
 	}
-
+	//Get carpark id
 	@Override
 	public String getCarparkId() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.carparkId;
 	}
-
+	//get Start Valid period 
 	@Override
 	public long getStartValidPeriod() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return this.startValidPeriod;
 	}
 
+	//Get End Valid Period 
 	@Override
 	public long getEndValidPeriod() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return this.endValidPeriod;
 	}
-
+	//Check inuse 
 	@Override
 	public boolean inUse() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
+/**
+ * Method used to record usage of season Ticket 
+ *  @ Param IUsgeRecord - This is the usage record details 
+ *  @ Return void 
+ */
 	@Override
 	public void recordUsage(IUsageRecord record) {
-		// TODO Auto-generated method stub
+		File writeUsageFile = new File("../Anonymous/UsageRecordData.txt");
+		if(writeUsageFile.exists()) {
+			try {
+				PrintWriter writeFile = new PrintWriter(writeUsageFile);
+				writeFile.print(record.getSeasonTicketId());
+				writeFile.print("\t");
+				writeFile.print(record.getStartTime());
+				writeFile.print("\t");
+				writeFile.print(record.getEndTime());
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		
 	}
 
 	@Override
 	public IUsageRecord getCurrentUsageRecord() {
-		// TODO Auto-generated method stub
 		return null;
 	}
-
+/**
+ * Method used to end usage of season Ticket 
+ *  @ Param long dateTime - This is the date time of end usage of season ticket
+ *  @ Return void 
+ */
 	@Override
 	public void endUsage(long dateTime) {
-		// TODO Auto-generated method stub
+		
+		try {
+			
+			Scanner readUsageRecord = new Scanner(new File("../Anonymous/UsageRecordData.txt"));
+			
+			while(readUsageRecord.hasNext()){
+				String usageLine = readUsageRecord.nextLine();
+				if(usageLine.contains(ticketId)){
+					String[] usageRecArray = usageLine.split("\t");
+					UsageRecord usageRec = new UsageRecord();
+					usageRec.ticketId = usageRecArray[0];
+					usageRec.startDateTime = Date.parse(usageRecArray[1]);
+					usageRec.endDateTime = dateTime;
+			}
+		  }
+				
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 		
 	}
-
+/**
+ * Method used to get current usage record 
+ *  @ Param 
+ *  @ Return List of usage records  
+ */
 	@Override
 	public List<IUsageRecord> getUsageRecords() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		
+		
+		List<IUsageRecord> usageRecordList = new ArrayList<>();
+		
+		try {
+			
+			Scanner readUsageRecord = new Scanner(new File("../Anonymous/UsageRecordData.txt"));
+			
+			while(readUsageRecord.hasNext()){
+				String usageLine = readUsageRecord.nextLine();
+				if(usageLine.contains(ticketId)){
+					String[] usageRecArray = usageLine.split("\t");
+					UsageRecord usageRec = new UsageRecord();
+					usageRec.ticketId = usageRecArray[0];
+					usageRec.startDateTime = Date.parse(usageRecArray[1]);
+					
+					usageRecordList.add(usageRec);
+				}
+			}
+				
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+			return usageRecordList;
+			
+		}
 
 
 }
